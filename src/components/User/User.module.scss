@@ -1,0 +1,19 @@
+.user {
+  width: 50%;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: solid 1px black;
+  &__container {
+    display: flex;
+    align-items: center;
+  }
+  &__img {
+    width: 120px;
+    border: solid 1px black;
+  }
+  &__name {
+    margin-left: 20px;
+  }
+}

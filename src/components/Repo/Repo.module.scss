@@ -1,0 +1,13 @@
+.repo {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: solid 1px black;
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+  }
+}

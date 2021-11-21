@@ -1,24 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import SearchPage from './pages/SearchPage';
+import UserPage from './pages/UserPage';
+import { IUserInfoResponse } from './types/types';
 
 function App() {
+  const [pickedUserData, setPickedUserData] = useState<IUserInfoResponse | undefined>();
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>GitHub Searcher</h1>
+      <Routes>
+        <Route path="/" element={<SearchPage setPickedUserData={setPickedUserData} />} />
+        <Route path="/user" element={<UserPage userData={pickedUserData} />} />
+      </Routes>
     </div>
   );
 }
