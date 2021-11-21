@@ -4,15 +4,6 @@ export interface IUsersLoginsResponse {
   }[];
 }
 
-export interface IUser extends IUserPreviewResponse {
-  email: string | null;
-  location: string | null;
-  created_at: string;
-  followers: number;
-  following: number;
-  bio: string | null;
-}
-
 export interface IUserPreviewResponse {
   id: number;
   login: string;
@@ -20,11 +11,7 @@ export interface IUserPreviewResponse {
   public_repos: number;
 }
 
-export interface IUserInfoResponse {
-  id: number;
-  login: string;
-  avatar_url: string;
-  public_repos: number;
+export interface IUserInfoResponse extends IUserPreviewResponse {
   email: string | null;
   location: string | null;
   created_at: string;

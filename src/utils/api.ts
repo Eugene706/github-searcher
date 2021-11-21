@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { TRepoResponse, IUser, IUserPreviewResponse, IUsersLoginsResponse } from '../types/types';
+import { TRepoResponse, IUserPreviewResponse, IUsersLoginsResponse, IUserInfoResponse } from '../types/types';
 
 export const getUsers = async (username: string) => {
   try {
@@ -28,7 +28,7 @@ export const getUsers = async (username: string) => {
 
 export const getUserRepos = async (username: string) => {
   try {
-    const user = await axios.get<IUser>(`https://api.github.com/users/${username}`).then((res) => res.data);
+    const user = await axios.get<IUserInfoResponse>(`https://api.github.com/users/${username}`).then((res) => res.data);
     const repos = await axios
       .get<TRepoResponse[]>(`https://api.github.com/users/${username}/subscriptions?per_page=100`)
       .then((res) => res);
